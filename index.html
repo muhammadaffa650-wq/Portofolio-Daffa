@@ -1,0 +1,3302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daffa | Film Director & Editor Portfolio</title>
+    <meta name="description" content="Portofolio resmi Karim, seorang Sutradara Film dan Editor berbasis di Indonesia. Menampilkan film pendek, video musik, dan dokumenter di balik layar.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheet -->
+    <style>
+        /* ==========================================================================
+   DESIGN SYSTEM & CUSTOM VARIABLES
+   ========================================================================== */
+:root {
+    /* Color Tokens */
+    --color-bg-main: #080808;
+    --color-bg-card: #121212;
+    --color-bg-card-hover: #181818;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-hover: rgba(255, 255, 255, 0.2);
+    
+    --color-text-primary: #f3f3f3;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #666666;
+    
+    /* Project Accents */
+    --color-emerald: #10b981;
+    --color-emerald-glow: rgba(16, 185, 129, 0.3);
+    
+    --color-crimson: #ef4444;
+    --color-crimson-glow: rgba(239, 68, 68, 0.3);
+    
+    --color-gold: #fbbf24;
+    --color-gold-glow: rgba(251, 191, 36, 0.3);
+    
+    /* Animation Timings */
+    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.25s ease;
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-main);
+    color: var(--color-text-primary);
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATION
+   ========================================================================== */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   NAVBAR COMPONENT
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8, 8, 8, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    transition: padding 0.3s ease;
+    padding: 20px 0;
+}
+
+.navbar.scrolled {
+    padding: 12px 0;
+    background: rgba(8, 8, 8, 0.95);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: var(--color-text-primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--color-text-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-text-primary);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.contact-btn {
+    border: 1px solid var(--color-border);
+    padding: 8px 18px !important;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.contact-btn::after {
+    display: none;
+}
+
+.contact-btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-main) !important;
+    border-color: var(--color-text-primary);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle .bar {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    transition: var(--transition-fast);
+}
+
+/* ==========================================================================
+   HERO / BANNER SECTION
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    padding-top: 80px; /* navbar offset */
+}
+
+.hero-banner-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 450px;
+    overflow: hidden;
+}
+
+.hero-banner-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center 30%;
+    transform: scale(1.05);
+    filter: brightness(0.6) contrast(1.05);
+    animation: slowZoom 20s infinite alternate;
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1.02); }
+    100% { transform: scale(1.08); }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(8, 8, 8, 0.2) 0%, rgba(8, 8, 8, 0.95) 90%, rgba(8, 8, 8, 1) 100%);
+}
+
+.hero-banner-text {
+    position: absolute;
+    bottom: 12%;
+    left: 5%;
+    right: 5%;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: keep-all;
+}
+
+.hero-subtitle {
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Bio Section Layout (Premium Dark Mode Contrast) */
+.bio-section {
+    background-color: #000000; /* Pure black background as requested */
+    color: var(--color-text-primary); /* High contrast light gray/white text */
+    width: 100%;
+}
+
+.hero-bio-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.bio-greeting {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--color-text-muted); /* Muted gray for greeting */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.bio-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+}
+
+.bio-paragraph {
+    color: var(--color-text-secondary); /* Elegant light gray for readablity */
+    font-size: 16.5px;
+    line-height: 1.85;
+}
+
+.bio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: var(--color-bg-card); /* Dark card background */
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border); /* Subtle thin border */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.info-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+}
+
+.info-value {
+    font-size: 15px;
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+a.info-value {
+    color: var(--color-text-primary);
+    transition: var(--transition-fast);
+}
+
+a.info-value:hover {
+    color: var(--color-emerald);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   PHOTO GALLERY SECTION
+   ========================================================================== */
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.section-divider {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    margin: 0 auto 20px auto;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-stack-controls {
+    display: none;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    background-color: #0d0d0d;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Photo CSS Filters */
+.filter-emerald img { filter: sepia(0.3) hue-rotate(90deg) saturate(1.4) contrast(1.15) brightness(0.85); }
+.filter-crimson img { filter: sepia(0.4) hue-rotate(-50deg) saturate(1.6) contrast(1.2) brightness(0.8); }
+.filter-sepia img { filter: sepia(0.7) saturate(1.1) contrast(1.1) brightness(0.85); }
+.filter-monochrome img { filter: grayscale(1) contrast(1.4) brightness(0.8); }
+.filter-cool img { filter: sepia(0.2) hue-rotate(185deg) saturate(1.3) contrast(1.15) brightness(0.85); }
+.filter-warm img { filter: sepia(0.3) hue-rotate(-15deg) saturate(1.4) contrast(1.1) brightness(0.85); }
+.filter-violet img { filter: hue-rotate(240deg) saturate(1.4) contrast(1.25) brightness(0.75); }
+.filter-cyan img { filter: hue-rotate(145deg) saturate(1.5) contrast(1.25) brightness(0.75); }
+
+.gallery-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    z-index: 2;
+}
+
+.gallery-item-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text-secondary);
+    margin-bottom: 5px;
+}
+
+.gallery-item-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   FEATURED PROJECT SECTION (GENERIC)
+   ========================================================================== */
+.project-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--color-border);
+    position: relative;
+}
+
+.project-title-container {
+    margin-bottom: 50px;
+}
+
+.project-tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.project-title {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.2;
+}
+
+.project-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+/* Project Poster Glow Effect */
+.project-poster-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    justify-self: center;
+    border-radius: 8px;
+}
+
+.project-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    display: block;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+.poster-glow {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 8px;
+    z-index: 1;
+    filter: blur(40px);
+    opacity: 0.25;
+    transition: var(--transition-smooth);
+}
+
+.project-poster-wrapper:hover .project-poster {
+    transform: translateY(-8px) scale(1.01);
+}
+
+.project-poster-wrapper:hover .poster-glow {
+    transform: translateY(4px);
+    opacity: 0.45;
+}
+
+/* Project Details */
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.details-heading {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+}
+
+.project-synopsis {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.meta-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+}
+
+.meta-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+/* Watch Button */
+.watch-film-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    width: fit-content;
+    border: 1px solid var(--color-border);
+    transition: var(--transition-smooth);
+}
+
+.watch-film-btn .play-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.watch-film-btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-main);
+    border-color: var(--color-text-primary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.watch-film-btn:hover .play-icon {
+    transform: scale(1.2);
+}
+
+/* Theme Accents Hook */
+.project-emerald .project-title { color: var(--color-emerald); }
+.project-emerald .poster-glow { background: var(--color-emerald); }
+.project-emerald .watch-film-btn:hover {
+    background-color: var(--color-emerald);
+    border-color: var(--color-emerald);
+    color: #fff;
+    box-shadow: 0 10px 30px var(--color-emerald-glow);
+}
+
+.project-crimson .project-title { color: var(--color-crimson); }
+.project-crimson .poster-glow { background: var(--color-crimson); }
+.project-crimson .watch-film-btn:hover {
+    background-color: var(--color-crimson);
+    border-color: var(--color-crimson);
+    color: #fff;
+    box-shadow: 0 10px 30px var(--color-crimson-glow);
+}
+
+.project-gold .project-title { color: var(--color-gold); }
+.project-gold .poster-glow { background: var(--color-gold); }
+.project-gold .watch-film-btn:hover {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: #000;
+    box-shadow: 0 10px 30px var(--color-gold-glow);
+}
+
+/* Behind the Scene Sliders (Carousels) */
+.scene-drafts-container {
+    margin-top: 60px;
+}
+
+.scene-drafts-title {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background-color: #0c0c0c;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    position: relative;
+    aspect-ratio: 2.35 / 1; /* Cinematic widescreen ratio */
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%);
+    color: var(--color-text-primary);
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    z-index: 3;
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: var(--transition-fast);
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-main);
+    border-color: var(--color-text-primary);
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.carousel-indicators .indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.carousel-indicators .indicator.active {
+    background-color: var(--color-text-primary);
+    transform: scale(1.2);
+}
+
+/* ==========================================================================
+   AWARDS SECTION
+   ========================================================================== */
+.awards-section {
+    background-color: var(--color-bg-card);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.awards-tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.awards-title {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.awards-desc {
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.awards-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.awards-item {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 20px;
+}
+
+.awards-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.award-year {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-gold);
+    min-width: 60px;
+}
+
+.award-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.award-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.award-category {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+/* Certificate Showcase cards */
+.awards-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.award-card {
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+}
+
+.award-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.award-card-media {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: sepia(0.3) saturate(1.1) brightness(0.6);
+}
+
+.award-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
+    transition: var(--transition-fast);
+}
+
+.award-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+.award-tag-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: var(--color-gold);
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    margin-bottom: 12px;
+}
+
+.award-card-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.award-card-content p {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+.award-card:hover .award-card-media {
+    transform: scale(1.08);
+    filter: sepia(0.1) saturate(1.3) brightness(0.7);
+}
+
+.award-card:hover .award-card-content {
+    transform: translateY(-5px);
+}
+
+/* Category Filters Styling */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-border-hover);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.filter-btn.active {
+    color: #fff;
+    border-color: var(--color-emerald);
+    background-color: var(--color-emerald);
+    box-shadow: 0 4px 15px var(--color-emerald-glow);
+}
+
+/* ==========================================================================
+   MUSIC VIDEOS SECTION
+   ========================================================================== */
+.music-videos-section {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.mv-card {
+    background-color: var(--color-bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: var(--transition-smooth);
+}
+
+.mv-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-5px);
+}
+
+.mv-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+}
+
+.mv-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.65;
+    mix-blend-mode: color;
+    transition: var(--transition-smooth);
+}
+
+.mv-card:hover .mv-filter {
+    opacity: 0.45;
+}
+
+.mv-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background-color: rgba(8, 8, 8, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: var(--transition-smooth);
+}
+
+.mv-play-btn .play-svg {
+    transform: translateX(2px);
+}
+
+.mv-card:hover .mv-play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-main);
+    border-color: var(--color-text-primary);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.mv-info {
+    padding: 30px;
+}
+
+.mv-artist {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+    font-weight: 700;
+}
+
+.mv-title {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    margin: 5px 0 15px 0;
+    letter-spacing: 1px;
+}
+
+.mv-desc {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   CLIENTS / COLLABORATORS SECTION
+   ========================================================================== */
+.clients-section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(to bottom, var(--color-bg-main) 0%, #0a0a0a 100%);
+}
+
+.clients-title {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 45px;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.client-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 35px 20px;
+    text-align: center;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.client-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #8b5cf6, #d946ef);
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.client-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.1);
+}
+
+.client-card:hover::before {
+    opacity: 1;
+}
+
+.client-logo-icon {
+    font-size: 28px;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: 15px;
+    transition: var(--transition-fast);
+}
+
+.client-card:hover .client-logo-icon {
+    color: #d946ef;
+    transform: scale(1.1);
+}
+
+.client-name {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.client-role {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   CONTACT & FOOTER SECTION
+   ========================================================================== */
+.footer-section {
+    padding-top: 100px;
+    background-color: #050505;
+}
+
+.contact-title {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.contact-divider {
+    width: 50px;
+    height: 1px;
+    background-color: var(--color-text-muted);
+    margin: 0 auto 25px auto;
+}
+
+.contact-subtitle {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    margin-bottom: 60px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.contact-card {
+    background-color: #0b0b0b;
+    border: 1px solid var(--color-border);
+    padding: 40px 30px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: var(--transition-smooth);
+}
+
+.contact-card-icon {
+    color: var(--color-text-muted);
+    transition: var(--transition-fast);
+}
+
+.contact-card h4 {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+    font-weight: 700;
+}
+
+.contact-card-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    word-break: break-all;
+}
+
+.contact-card:hover {
+    border-color: var(--color-border-hover);
+    background-color: #0f0f0f;
+    transform: translateY(-5px);
+}
+
+.contact-card:hover .contact-card-icon {
+    color: var(--color-text-primary);
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.03);
+    padding: 35px 0;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   MODALS COMPONENT (LIGHTBOX & VIDEO)
+   ========================================================================== */
+/* Lightbox Modal styling */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 4, 4, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: var(--color-text-primary);
+    opacity: 0.6;
+    transition: var(--transition-fast);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    color: var(--color-text-primary);
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.lightbox-nav-btn:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.15);
+}
+
+#lightboxPrev { left: 30px; }
+#lightboxNext { right: 30px; }
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    transform: scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.lightbox-modal.active .lightbox-img {
+    transform: scale(1);
+}
+
+.lightbox-caption {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Video Modal styling */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.video-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 4, 4, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.video-modal-content {
+    position: relative;
+    width: 85%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+    z-index: 2;
+    transform: scale(0.95);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.video-modal.active .video-modal-content {
+    transform: scale(1);
+}
+
+.video-player-container {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.video-player-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.video-modal .modal-close {
+    top: -45px;
+    right: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 60px 0;
+    }
+    
+    .hero-title {
+        font-size: 60px;
+        letter-spacing: 8px;
+    }
+    
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .project-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .project-poster-wrapper {
+        max-width: 320px;
+    }
+    
+    .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 0;
+    }
+    
+    /* Mobile Navigation menu drawer */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #0c0c0c;
+        border-left: 1px solid var(--color-border);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .navbar.menu-open .mobile-menu-toggle .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .navbar.menu-open .mobile-menu-toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .navbar.menu-open .mobile-menu-toggle .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .hero-banner-container {
+        height: 55vh;
+    }
+    
+    .hero-title {
+        font-size: 42px;
+        letter-spacing: 3px;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 11px;
+        letter-spacing: 3.5px;
+    }
+    
+    .bio-heading {
+        font-size: 28px;
+    }
+    
+    .gallery-grid {
+        position: relative !important;
+        display: block !important; /* Switch from grid to block for absolute layout */
+        height: 380px !important; /* Fixed height for absolute children stack */
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+        perspective: 1000px !important;
+    }
+    
+    .gallery-item {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        transform-origin: bottom center !important;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, border-color 0.3s ease !important;
+        cursor: grab !important;
+        user-select: none !important;
+        touch-action: none !important; /* Prevent browser scrolling while swiping card */
+        z-index: 1;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Stack depth classes */
+    .gallery-item.card-top-1 {
+        z-index: 10 !important;
+        opacity: 1 !important;
+        transform: translate3d(0, 0, 0) scale(1) !important;
+        pointer-events: all !important;
+    }
+
+    .gallery-item.card-top-2 {
+        z-index: 9 !important;
+        opacity: 0.85 !important;
+        transform: translate3d(0, 12px, -20px) scale(0.94) !important;
+        pointer-events: none !important;
+    }
+
+    .gallery-item.card-top-3 {
+        z-index: 8 !important;
+        opacity: 0.7 !important;
+        transform: translate3d(0, 24px, -40px) scale(0.88) !important;
+        pointer-events: none !important;
+    }
+
+    /* Swipe exit animations */
+    .gallery-item.swiped-left {
+        transform: translate3d(-150%, 0, 0) rotate(-20deg) scale(0.9) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .gallery-item.swiped-right {
+        transform: translate3d(150%, 0, 0) rotate(20deg) scale(0.9) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .gallery-item.dragging {
+        transition: none !important;
+        cursor: grabbing !important;
+        z-index: 11 !important;
+    }
+
+    /* Mobile stacked cards controls */
+    .gallery-stack-controls {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 45px;
+        width: 100%;
+    }
+
+    .g-stack-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(8, 8, 8, 0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-border);
+        color: var(--color-text-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-fast);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        cursor: pointer;
+    }
+
+    .g-stack-btn:hover {
+        background-color: var(--color-text-primary);
+        color: var(--color-bg-main);
+        border-color: var(--color-text-primary);
+        transform: scale(1.05);
+    }
+    
+    .project-title {
+        font-size: 32px;
+    }
+    
+    .carousel-slide {
+        aspect-ratio: 16 / 9;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+    
+    .awards-title {
+        font-size: 32px;
+    }
+    
+    .mv-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+    
+    .contact-card {
+        padding: 30px 20px;
+    }
+    
+    .modal-close {
+        top: 20px;
+        right: 20px;
+    }
+    
+    #lightboxPrev { left: 15px; }
+    #lightboxNext { right: 15px; }
+    
+    .lightbox-content {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner-container {
+        height: 45vh;
+    }
+    
+    .hero-title {
+        font-size: 30px;
+        letter-spacing: 2px;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+    
+    .gallery-grid {
+        position: relative !important;
+        display: block !important;
+        height: 320px !important; /* Slightly shorter stack for smaller phones */
+        width: 100% !important;
+        max-width: 270px !important;
+        margin: 0 auto !important;
+        perspective: 1000px !important;
+    }
+    
+    .project-meta-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .awards-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Premium Horizontal Slider Styling */
+.mv-slider-container {
+    position: relative;
+    width: 100%;
+}
+
+.mv-grid {
+    display: flex;
+    flex-wrap: nowrap !important; /* Don't wrap, keep in single row! */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 30px;
+    padding: 10px 0 20px 0;
+    scrollbar-width: none; /* Firefox */
+}
+
+.mv-grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.mv-card {
+    flex: 0 0 calc(25% - 22.5px); /* Exactly 4 cards visible on desktop / landscape */
+    scroll-snap-align: start;
+    transition: var(--transition-smooth);
+}
+
+.mv-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgba(8, 8, 8, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: var(--transition-fast);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.mv-slider-btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-main);
+    border-color: var(--color-text-primary);
+}
+
+.mv-slider-btn.prev-btn {
+    left: -25px;
+}
+
+.mv-slider-btn.next-btn {
+    right: -25px;
+}
+
+@media (max-width: 1024px) {
+    .mv-card {
+        flex: 0 0 calc(50% - 15px); /* Exactly 2 cards visible on tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .mv-grid {
+        gap: 20px;
+    }
+    .mv-card {
+        flex: 0 0 100% !important; /* Exactly 1 card visible on mobile / portrait */
+    }
+    .mv-slider-btn {
+        width: 40px;
+        height: 40px;
+    }
+    .mv-slider-btn.prev-btn {
+        left: -10px;
+    }
+    .mv-slider-btn.next-btn {
+        right: -10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">BCF</a>
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#gallery" class="nav-link">Foto Galeri</a>
+                <a href="#project-may" class="nav-link">Film</a>
+                <a href="#awards" class="nav-link">Awards</a>
+                <a href="#music-videos" class="nav-link">Video Projects</a>
+                <a href="#contact" class="nav-link contact-btn">Hubungi Saya</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Header Banner Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-banner-container">
+            <div class="hero-banner-bg" style="background-image: url('background-home.jpeg');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-banner-text">
+                <h1 class="hero-title">Muhammad Daffa Ramadhani</h1>
+                <p class="hero-subtitle">CINEMATOGRAPHY/EDITOR/VIDEOGRAPHY</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio / About Section (Distinct Light Gray Section) -->
+    <section class="bio-section" id="about">
+        <div class="hero-bio-container container scroll-reveal">
+            <div class="bio-grid">
+                <div class="bio-text">
+                    <p class="bio-greeting">ABOUT ME</p>
+                    <h2 class="bio-heading">Hi, I'm Daffa.</h2>
+                    <p class="bio-paragraph">Hello! I'm a visual creator with a three-year film education background, specializing in Cinematography, Videography, and Video Editing. For me, a powerful visual work is born from the combination of camera aesthetics in the field and a sense of rhythm in the editing room.
+During my studies and various practical projects, I honed my visual instincts through cinematography understanding lighting, composition, and camera movement to build a story's atmosphere. Furthermore, my experience as a videographer has shaped me into an adaptable and agile creator, capturing moments in real time. I then perfect this creative process in the editing stage, weaving each clip into a cohesive, dynamic, and powerful narrative.
+Accustomed to using industrial camera equipment and standard post-production software, I'm always ready to bring fresh ideas and execute them into high-quality visual works.</p>
+                </div>
+                <div class="bio-info">
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <a href="mailto:muhammadaffa650@gmail.com" class="info-value">muhammadaffa650@gmail.com</a>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Instagram</span>
+                        <a href="https://instagram.com/muhammadaffa._" target="_blank" rel="noopener" class="info-value">@muhammadaffa._</a>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Layanan</span>
+                        <span class="info-value">Cinematography, Videography & Editing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section container scroll-reveal" id="gallery">
+        <div class="section-header text-center">
+            <h2 class="section-title">Foto galeri</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Di balik layar proses pembuatan film & momen produksi</p>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Grid Item 1: Camera (Landscape) -->
+            <div class="gallery-item" data-src="gl1.jpeg" data-caption="Mempersiapkan sudut kamera cinema untuk adegan pembuka.">
+                <img src="gl1.jpeg" alt="Behind the scenes camera setup" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 2: Director (Normal) -->
+            <div class="gallery-item" data-src="gl2.jpeg" data-caption="Diskusi kreatif sutradara dengan pemeran utama sebelum pengambilan gambar.">
+                <img src="gl2.jpeg" alt="Director briefing actors" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 3: Camera (Portrait - Emerald) -->
+            <div class="gallery-item" data-src="gl3.jpeg" data-caption="Pengaturan pencahayaan atmosferik hijau untuk 'Something Unhappened In May'.">
+                <img src="gl3.jpeg" alt="Emerald camera setup" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 4: Director (Normal - Crimson) -->
+            <div class="gallery-item" data-src="gl4.jpeg" data-caption="Pengarahan adegan emosional di set 'Melodramatikal'.">
+                <img src="gl4.jpeg" alt="Crimson director set" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 5: Hero BTS (Landscape - Sepia) -->
+            <div class="gallery-item" data-src="g30.jpeg" data-caption="Tim kamera memantau pergerakan lensa pada slider.">
+                <img src="gl30.jpeg" alt="Sepia slider check" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 6: Camera (Normal - Monochrome) -->
+            <div class="gallery-item" data-src="gl6.jpeg" data-caption="Eksplorasi kontras monokrom untuk proyek misteri eksperimental.">
+                <img src="gl6.jpeg" alt="Monochrome camera lens" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 7: Director (Portrait - Cool) -->
+            <div class="gallery-item" data-src="gl7.jpeg" data-caption="Review naskah dan kecocokan naskah dengan dialog di monitor.">
+                <img src="gl7.jpeg" alt="Reviewing script on set" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 8: Hero BTS (Landscape) -->
+            <div class="gallery-item" data-src="gl8.jpeg" data-caption="Di balik layar pengambilan adegan eksterior malam hari.">
+                <img src="gl8.jpeg" alt="Exterior night production" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 9: Camera (Normal - Warm) -->
+            <div class="gallery-item" data-src="gl9.jpeg" data-caption="Kalibrasi warna kamera cinema sebelum syuting video klip.">
+                <img src="gl9.jpeg" alt="Camera calibration" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 10: Director (Large - Monochrome) -->
+            <div class="gallery-item" data-src="gl24.jpeg" data-caption="Komposisi bayangan siluet sutradara di lokasi syuting.">
+                <img src="gl24.jpeg" alt="Director silhouette" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 11: Hero BTS (Portrait - Cool) -->
+            <div class="gallery-item" data-src="gl11.jpeg" data-caption="Kordinasi penataan cahaya bersama kru gaffer.">
+                <img src="gl11.jpeg" alt="Gaffer lighting coordination" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 12: Director (Normal - Sepia) -->
+            <div class="gallery-item" data-src="gl12.jpeg" data-caption="Persiapan akhir aktor sebelum sutradara berseru 'ACTION!'.">
+                <img src="gl12.jpeg" alt="Final actor prep" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 13: Camera (Landscape - Cyan) -->
+            <div class="gallery-item" data-src="gl13.jpeg" data-caption="Perekaman audio berkualitas tinggi menggunakan boom mic khusus.">
+                <img src="gl13.jpeg" alt="Boom mic audio recording" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 14: Director (Portrait - Warm) -->
+            <div class="gallery-item" data-src="gl14.jpeg" data-caption="Pendalaman emosi pemeran utama untuk adegan klimaks.">
+                <img src="gl14.jpeg" alt="Actor deep emotional focus" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 15: Hero BTS (Normal - Violet) -->
+            <div class="gallery-item" data-src="gl15.jpeg" data-caption="Review kasar hasil rekaman langsung dari editor di set syuting.">
+                <img src="gl15.jpeg" alt="Rough cut review on set" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 16: Director (Landscape - Sepia) -->
+            <div class="gallery-item" data-src="gl16.jpeg" data-caption="Pengecekan kecocokan kostum pemeran utama sebelum pengambilan gambar.">
+                <img src="gl16.jpeg" alt="Wardrobe detail check" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 17: Camera (Portrait - Crimson) -->
+            <div class="gallery-item" data-src="gl10.jpeg" data-caption="Penandaan clapboard untuk sinkronisasi audio dan video adegan ke-5.">
+                <img src="gl10.jpeg" alt="Clapboard slate cue" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 18: Hero BTS (Large - Cool) -->
+            <div class="gallery-item" data-src="gl18.jpeg" data-caption="Pengambilan sudut pandang tinggi (aerial) menggunakan drone cinema.">
+                <img src="gl18.jpeg" alt="Drone cinema flight" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 19: Director (Normal - Monochrome) -->
+            <div class="gallery-item" data-src="gl19.jpeg" data-caption="Diskusi sutradara dengan produser terkait penyesuaian jadwal syuting harian.">
+                <img src="gl19.jpeg" alt="Director and producer brief" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 20: Hero BTS (Landscape - Emerald) -->
+            <div class="gallery-item" data-src="gl20.jpeg" data-caption="Pengaturan cahaya lampu praktis untuk memberikan kesan hangat alami di kamar.">
+                <img src="gl20.jpeg" alt="Practical light set design" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 21: Director (Portrait - Crimson) -->
+            <div class="gallery-item" data-src="gl21.jpeg" data-caption="Persiapan koreografi aksi laga berbahaya oleh tim stunt.">
+                <img src="gl21.jpeg" alt="Stunt action rehearsal" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 22: Camera (Normal - Warm) -->
+            <div class="gallery-item" data-src="gl22.jpeg" data-caption="Penataan set dekorasi ruangan agar terasa hidup dan penuh dengan detail cerita.">
+                <img src="gl22.jpeg" alt="Detailed set dressing" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 23: Camera (Landscape - Cyan) -->
+            <div class="gallery-item" data-src="gl23.jpeg" data-caption="Proses pergantian lensa anamorphic prime untuk adegan drama.">
+                <img src="gl23.jpeg" alt="Anamorphic lens swap" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 24: Director (Portrait - Violet) -->
+            <div class="gallery-item" data-src="gl10.jpeg" data-caption="Monitor eksternal memantau kualitas tangkapan kamera utama secara real-time.">
+                <img src="gl10.jpeg" alt="Creative director monitor screen" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 25: Hero BTS (Large) -->
+            <div class="gallery-item" data-src="gl25.jpeg" data-caption="Momen istirahat hangat dan canda tawa kru di sela-sela syuting malam.">
+                <img src="gl25.jpeg" alt="Crew short break on set" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 26: Camera (Normal - Cool) -->
+            <div class="gallery-item" data-src="gl26.jpeg" data-caption="Operator audio menyelaraskan mixing suara background di luar ruangan.">
+                <img src="gl26.jpeg" alt="Field sound mixing console" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 27: Camera (Landscape - Emerald) -->
+            <div class="gallery-item" data-src="gl27.jpeg" data-caption="Pengambilan adegan dinamis menggunakan rig handheld penstabil kamera.">
+                <img src="gl27.jpeg" alt="Handheld cinema rig setup" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 28: Hero BTS (Portrait - Sepia) -->
+            <div class="gallery-item" data-src="gl28.jpeg" data-caption="Penggunaan reflektor perak untuk memperjelas kontur wajah aktor utama.">
+                <img src="gl28.jpeg" alt="Reflector bounce lighting" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 29: Director (Normal - Warm) -->
+            <div class="gallery-item" data-src="gl17.jpeg" data-caption="Sentuhan akhir riasan wajah aktor agar tampak dramatis di bawah lampu.">
+                <img src="gl17.jpeg" alt="Actor makeup session" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+            <!-- Grid Item 30: Director (Large - Monochrome) -->
+            <div class="gallery-item" data-src="gl29.jpeg" data-caption="Evaluasi harian seluruh kru mengenai pencapaian produksi hari ini.">
+                <img src="gl29.jpeg" alt="Daily crew evaluation meeting" class="gallery-img">
+                <div class="gallery-item-overlay">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stack controls only visible on mobile -->
+        <div class="gallery-stack-controls">
+            <button class="g-stack-btn prev-btn" id="gs-prev" aria-label="Foto Sebelumnya">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" fill="currentColor"/></svg>
+            </button>
+            <button class="g-stack-btn next-btn" id="gs-next" aria-label="Foto Selanjutnya">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Music Videos Section -->
+    <section class="music-videos-section container scroll-reveal" id="music-videos">
+        <div class="section-header text-center">
+            <h2 class="section-title">Video Projects</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Kompilasi proyek video kreatif dari berbagai kategori sinematik</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filters text-center">
+            <button class="filter-btn active" data-category="all">Semua</button>
+            <button class="filter-btn" data-category="short-movie">Short Movie</button>
+            <button class="filter-btn" data-category="content-podcast">Content & Podcast</button>
+            <button class="filter-btn" data-category="main-event">Main Event</button>
+        </div>
+
+        <!-- Slider Container with navigation arrows -->
+        <div class="mv-slider-container">
+            <!-- Prev Arrow -->
+            <button class="mv-slider-btn prev-btn" id="mv-prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" fill="currentColor"/></svg>
+            </button>
+
+            <div class="mv-grid">
+            
+            <!-- Short Movie 1 -->
+            <div class="mv-card video-card" data-category="short-movie" data-video-url="https://youtu.be/t14ZOLyDEsw?si=xH4DXxc0NM3vnd5G">
+                <div class="mv-media">
+                    <div class="mv-filter filter-sepia"></div>
+                    <button class="mv-play-btn" data-video-url="https://youtu.be/t14ZOLyDEsw?si=xH4DXxc0NM3vnd5G" aria-label="Putar Film Pendek">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Rewind Depok 2025</span>
+                </div>
+            </div>
+            <!-- Short Movie 2 -->
+            <div class="mv-card video-card" data-category="short-movie" data-video-url="https://youtu.be/u0tN1bNSoZI?si=Nya-aa-40aR_x4Z4">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cyan"></div>
+                    <button class="mv-play-btn" data-video-url="https://youtu.be/u0tN1bNSoZI?si=Nya-aa-40aR_x4Z4" aria-label="Putar Video Klip">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Aku dan Mentari</span>
+                </div>
+            </div>
+            <!-- Short Movie 3 -->
+            <div class="mv-card video-card" data-category="short-movie" data-video-url="https://drive.google.com/file/d/1ekZ8jFGtlc_leZ_EpFe96KSp9yR201fo/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-crimson"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1ekZ8jFGtlc_leZ_EpFe96KSp9yR201fo/view?usp=drive_link" aria-label="Putar Film Pendek">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">short movie mess around and find out growing,coping, and living</span>
+                </div>
+            </div>
+            <!-- Short Movie 4 -->
+            <div class="mv-card video-card" data-category="short-movie" data-video-url="https://drive.google.com/file/d/1-M6b2yaurR3tmhq0kYpXH3Bvew_THHsp/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cyan"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1-M6b2yaurR3tmhq0kYpXH3Bvew_THHsp/view?usp=drive_link" aria-label="Putar Video Klip">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Beyond The Surface</span>
+                </div>
+            </div>
+            <!-- Short Movie 5 -->
+            <div class="mv-card video-card" data-category="short-movie" data-video-url="https://drive.google.com/file/d/1POEE_TH616xy_57W7ThISMR-j7YP9R-0/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cyan"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1POEE_TH616xy_57W7ThISMR-j7YP9R-0/view?usp=drive_link" aria-label="Putar Video Klip">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">MV Lyft Romy & Magdalena</span>
+                </div>
+            </div>
+            <!-- Short Movie 6 -->
+            <div class="mv-card video-card" data-category="short-movie" data-video-url="https://drive.google.com/file/d/1LEphoAkYzuJZrMM79In8330KbV5QfTSn/view?usp=sharing">
+                <div class="mv-media">
+                    <div class="mv-filter filter-violet"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1LEphoAkYzuJZrMM79In8330KbV5QfTSn/view?usp=sharing" aria-label="Putar Film Pendek">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Something Unhappened In May</span>
+                </div>
+            </div>
+
+
+            <!-- Content & Podcast 1 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1jbfWZ1cQXOjSAEgLAv4Cp1JEj0qtrgk6/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-warm"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1jbfWZ1cQXOjSAEgLAv4Cp1JEj0qtrgk6/view?usp=drive_link" aria-label="Putar Iklan">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Yuk!! Recheck</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 2 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1juHII11kY8f02yB0jvbQI7M8wAiYLRSW/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cool"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1juHII11kY8f02yB0jvbQI7M8wAiYLRSW/view?usp=drive_link" aria-label="Putar Iklan">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Mengenal dunia pertanian sejak dini</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 3 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1Ng3X96wBRhPYNzqlDsO1xSF_cIRw7xWz/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cool"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1Ng3X96wBRhPYNzqlDsO1xSF_cIRw7xWz/view?usp=drive_link" aria-label="Putar Iklan">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Keuntungan Investasi</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 4 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1oI8kM3YUw7qYV-pA9B8oVDM0fcCmS89m/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cool"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1oI8kM3YUw7qYV-pA9B8oVDM0fcCmS89m/view?usp=drive_link" aria-label="Putar Iklan">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Susu atau Yoghurt</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 5 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1Nm0jjJFoy8Y7O1tX70Jn55Pd9NFPNai_/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cool"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1Nm0jjJFoy8Y7O1tX70Jn55Pd9NFPNai_/view?usp=drive_link" aria-label="Putar Iklan">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Terlu ayam kampung atau terlur ayam Ras?</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 6 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1K8aDydEu9nSci6i0aITeWkNcvOadTybT/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cool"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1K8aDydEu9nSci6i0aITeWkNcvOadTybT/view?usp=drive_link" aria-label="Putar Iklan">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Virus ASF</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 7 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1wqggUbpEtaO9BNeUKbZ9Wp7NtfCSYpz2/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-cool"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1wqggUbpEtaO9BNeUKbZ9Wp7NtfCSYpz2/view?usp=drive_link" aria-label="Putar Iklan">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Upaya Stabilisasi Pasokan Pakan Ternak</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 8 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1lNFADWJXAYr-gPj-XbgKCuDBtuyoFIMF/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-violet"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1lNFADWJXAYr-gPj-XbgKCuDBtuyoFIMF/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Seberapa Cinta Kamu Dengan Indonesia</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 9 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/10Gt2d8FBRVIigx-uYzbvhGoBXIiIua6h/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-violet"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/10Gt2d8FBRVIigx-uYzbvhGoBXIiIua6h/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Membongkar Patriarki</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 10 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/14CI0pgIA6TbxVsvmhi3DMfloBvfhep_W/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-violet"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/14CI0pgIA6TbxVsvmhi3DMfloBvfhep_W/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Pendidikan atau Penindasan</span>
+                </div>
+            </div>
+            <!-- Content & Podcast 11 -->
+            <div class="mv-card video-card" data-category="content-podcast" data-video-url="https://drive.google.com/file/d/1-dwGdyeIvZFQ7Xi2uGRFtK2nTl8NwxQ6/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-violet"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1-dwGdyeIvZFQ7Xi2uGRFtK2nTl8NwxQ6/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Hobi jadi Cuan</span>
+                </div>
+            </div>
+
+            <!-- Main Event 1 -->
+            <div class="mv-card video-card" data-category="main-event" data-video-url="https://drive.google.com/file/d/1AkOfhH1AS-C1P1hAitXmIfm_AfdeEdDT/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-violet"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1AkOfhH1AS-C1P1hAitXmIfm_AfdeEdDT/view?usp=drive_link" aria-label="Putar Video Klip">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">After movie Java Music School</span>
+                </div>
+            </div>
+            <!-- Main Event 2 -->
+            <div class="mv-card video-card" data-category="main-event" data-video-url="https://drive.google.com/file/d/1ousjNMiB1yOJFcxkI3WV5r2BHD1SaNyS/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-emerald"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1ousjNMiB1yOJFcxkI3WV5r2BHD1SaNyS/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Highlight SMK Islamiah Serua</span>
+                </div>
+            </div>
+            <!-- Main Event ３ -->
+            <div class="mv-card video-card" data-category="main-event" data-video-url="https://drive.google.com/file/d/1paOYxZIbohNCJrOtDkQ5kYqeprVAwSi_/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-emerald"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1paOYxZIbohNCJrOtDkQ5kYqeprVAwSi_/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Content Tiktok SMK Islamiah Serua</span>
+                </div>
+            </div>
+            <!-- Main Event 4 -->
+            <div class="mv-card video-card" data-category="main-event" data-video-url="https://drive.google.com/file/d/1d8RcDfXWzsOjIETKRLw6QDH61JnaDwAQ/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-emerald"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1d8RcDfXWzsOjIETKRLw6QDH61JnaDwAQ/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Transisi Angkatan SMK Islamiah Serua</span>
+                </div>
+            </div>
+            <!-- Main Event 5 -->
+            <div class="mv-card video-card" data-category="main-event" data-video-url="https://drive.google.com/file/d/1uYD0dqERAl1WzFh0tucmgy6xO98Gmk_0/view?usp=drive_link">
+                <div class="mv-media">
+                    <div class="mv-filter filter-emerald"></div>
+                    <button class="mv-play-btn" data-video-url="https://drive.google.com/file/d/1uYD0dqERAl1WzFh0tucmgy6xO98Gmk_0/view?usp=drive_link" aria-label="Putar Dokumenter">
+                        <svg class="play-svg" viewBox="0 0 24 24" width="30" height="30">
+                            <polygon points="6,4 20,12 6,20" fill="currentColor"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mv-info">
+                    <span class="mv-artist">Smart Parenting 2024</span>
+                </div>
+            </div>
+            </div>
+
+            <!-- Next Arrow -->
+            <button class="mv-slider-btn next-btn" id="mv-next" aria-label="Next">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer class="footer-section scroll-reveal" id="contact">
+        <div class="container text-center">
+            <h2 class="contact-title">Contact</h2>
+            <div class="contact-divider"></div>
+            <p class="contact-subtitle">Mari berdiskusi untuk mewujudkan proyek sinematik Anda berikutnya.</p>
+
+            <div class="contact-grid">
+                <!-- Contact Item 1 -->
+                <a href="mailto:muhammadaffa650@gmail.com" class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h4>KIRIM EMAIL</h4>
+                    <span class="contact-card-link">muhammadaffa650@gmail.com</span>
+                </a>
+                
+                <!-- Contact Item 2 -->
+                <a href="https://instagram.com/muhammadaffa._" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </div>
+                    <h4>INSTAGRAM</h4>
+                    <span class="contact-card-link">@muhammadaffa._</span>
+                </a>
+
+                <!-- Contact Item 3 -->
+                <a href="https://wa.me/+6287885832873" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                    </div>
+                    <h4>WHATSAPP</h4>
+                    <span class="contact-card-link">+62 878 8583 2873</span>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Karim Films. All Rights Reserved. Crafted with passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Immersive Photo Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Detail Foto">
+        <button class="modal-close" id="lightboxClose" aria-label="Tutup Detail Foto">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <button class="lightbox-nav-btn prev-btn" id="lightboxPrev" aria-label="Foto sebelumnya">
+            <svg viewBox="0 0 24 24" width="36" height="36"><path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" fill="currentColor"/></svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img" id="lightboxImg">
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+        <button class="lightbox-nav-btn next-btn" id="lightboxNext" aria-label="Foto berikutnya">
+            <svg viewBox="0 0 24 24" width="36" height="36"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="currentColor"/></svg>
+        </button>
+    </div>
+
+    <!-- Video Modal Player -->
+    <div class="video-modal" id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:99999; justify-content:center; align-items:center;">
+        <div class="video-modal-overlay" style="position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.95); cursor:pointer;"></div>
+        <div class="video-modal-container" style="position:relative; width:90%; max-width:960px; aspect-ratio:16/9; z-index:2; background:#000;">
+            <button id="videoModalClose" style="position:absolute; top:-40px; right:0; background:none; border:none; font-size:40px; color:#fff; cursor:pointer;">&times;</button>
+            <iframe id="videoPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%;"></iframe>
+        </div>
+    </div>
+
+
+
+    <!-- JavaScript Bundle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+    /* ==========================================================================
+       1. STICKY HEADER & MOBILE NAV TOGGLE
+       ========================================================================== */
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinksContainer = document.getElementById('navLinks');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Sticky Navbar on Scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Toggle Mobile Menu
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('menu-open');
+        navLinksContainer.classList.toggle('active');
+    });
+
+    // Close Mobile Menu on Link Click
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('menu-open');
+            navLinksContainer.classList.remove('active');
+        });
+    });
+
+    /* ==========================================================================
+       2. SCROLL REVEAL & NAVIGATION TRACKING
+       ========================================================================== */
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const sections = document.querySelectorAll('section, footer');
+
+    // Intersection Observer for Fade-in animations
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Once animated, no need to track again
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Navigation Active Link Observer
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '-20% 0px -50% 0px'
+        });
+
+        sections.forEach(sec => {
+            if (sec.getAttribute('id')) {
+                sectionObserver.observe(sec);
+            }
+        });
+    } else {
+        // Fallback for older browsers
+        revealElements.forEach(el => el.classList.add('revealed'));
+    }
+
+    /* ==========================================================================
+       3. REUSABLE CAROUSEL ENGINE (WITH SWIPE SUPPORT)
+       ========================================================================== */
+    class Carousel {
+        constructor(containerId) {
+            this.container = document.getElementById(containerId);
+            if (!this.container) return;
+
+            this.track = this.container.querySelector('.carousel-track');
+            this.slides = Array.from(this.container.querySelectorAll('.carousel-slide'));
+            this.nextBtn = this.container.querySelector('.next-btn');
+            this.prevBtn = this.container.querySelector('.prev-btn');
+            this.indicators = Array.from(this.container.querySelectorAll('.indicator'));
+
+            this.currentIndex = 0;
+            this.totalSlides = this.slides.length;
+            this.touchStartX = 0;
+            this.touchEndX = 0;
+
+            this.init();
+        }
+
+        init() {
+            if (this.totalSlides <= 1) {
+                if (this.nextBtn) this.nextBtn.style.display = 'none';
+                if (this.prevBtn) this.prevBtn.style.display = 'none';
+                return;
+            }
+
+            // Button Event Listeners
+            this.nextBtn.addEventListener('click', () => this.moveToSlide(this.currentIndex + 1));
+            this.prevBtn.addEventListener('click', () => this.moveToSlide(this.currentIndex - 1));
+
+            // Indicator Event Listeners
+            this.indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => this.moveToSlide(index));
+            });
+
+            // Touch support for swiping
+            this.track.addEventListener('touchstart', (e) => {
+                this.touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            this.track.addEventListener('touchend', (e) => {
+                this.touchEndX = e.changedTouches[0].screenX;
+                this.handleSwipe();
+            }, { passive: true });
+
+            // Handle Resize
+            window.addEventListener('resize', () => this.updateTrackPosition());
+        }
+
+        moveToSlide(index) {
+            // Loop controls
+            if (index < 0) {
+                index = this.totalSlides - 1;
+            } else if (index >= this.totalSlides) {
+                index = 0;
+            }
+
+            this.currentIndex = index;
+            this.updateTrackPosition();
+            this.updateIndicators();
+        }
+
+        updateTrackPosition() {
+            const slideWidth = this.slides[0].getBoundingClientRect().width;
+            this.track.style.transform = `translateX(-${this.currentIndex * slideWidth}px)`;
+        }
+
+        updateIndicators() {
+            this.indicators.forEach((indicator, idx) => {
+                if (idx === this.currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        handleSwipe() {
+            const swipeThreshold = 50;
+            if (this.touchStartX - this.touchEndX > swipeThreshold) {
+                // Swipe Left -> Next Slide
+                this.moveToSlide(this.currentIndex + 1);
+            } else if (this.touchEndX - this.touchStartX > swipeThreshold) {
+                // Swipe Right -> Prev Slide
+                this.moveToSlide(this.currentIndex - 1);
+            }
+        }
+    }
+
+    // Initialize all carousels
+    new Carousel('carousel-may');
+    new Carousel('carousel-melo');
+    new Carousel('carousel-legend');
+
+
+    /* ==========================================================================
+       4. IMMERSIVE PHOTO GALLERY LIGHTBOX
+       ========================================================================== */
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    // Gather all clickable gallery items in the page
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    let currentGalleryIndex = 0;
+
+    const openLightbox = (index) => {
+        currentGalleryIndex = index;
+        const targetItem = galleryItems[currentGalleryIndex];
+        const imageSrc = targetItem.getAttribute('data-src');
+        const imageCaption = targetItem.getAttribute('data-caption');
+
+        lightboxImg.src = imageSrc;
+        lightboxCaption.textContent = imageCaption;
+        
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Stop background scrolling
+    };
+
+    const closeLightbox = () => {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            lightboxImg.src = '';
+            lightboxCaption.textContent = '';
+        }, 300); // clear after animation completes
+    };
+
+    const navigateLightbox = (direction) => {
+        let newIndex = currentGalleryIndex + direction;
+        if (newIndex < 0) {
+            newIndex = galleryItems.length - 1;
+        } else if (newIndex >= galleryItems.length) {
+            newIndex = 0;
+        }
+        openLightbox(newIndex);
+    };
+
+    // ==========================================================================
+    // 4b. MOBILE TINDER-STYLE PHOTO STACK ENGINE
+    // ==========================================================================
+    const galleryGrid = document.querySelector('.gallery-grid');
+    
+    // Track drag values
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragCurrentX = 0;
+    let dragCurrentY = 0;
+    let dragDistanceX = 0;
+    let dragDistanceY = 0;
+    let isDragging = false;
+    let activeCard = null;
+    let dragStartTime = 0;
+
+    function renderGalleryLayout() {
+        if (window.innerWidth <= 768) {
+            // Apply stack classes to top 3 cards relative to currentGalleryIndex
+            galleryItems.forEach((item, index) => {
+                // Clear inline style and classes
+                item.style.transform = '';
+                item.style.opacity = '';
+                item.classList.remove('card-top-1', 'card-top-2', 'card-top-3', 'swiped-left', 'swiped-right');
+                
+                // Calculate position relative to currentGalleryIndex (with loop support)
+                let relativeIndex = (index - currentGalleryIndex + galleryItems.length) % galleryItems.length;
+                
+                if (relativeIndex === 0) {
+                    item.classList.add('card-top-1');
+                } else if (relativeIndex === 1) {
+                    item.classList.add('card-top-2');
+                } else if (relativeIndex === 2) {
+                    item.classList.add('card-top-3');
+                }
+            });
+        } else {
+            // Desktop: Clean up all mobile styles & classes
+            galleryItems.forEach(item => {
+                item.style.transform = '';
+                item.style.opacity = '';
+                item.classList.remove('card-top-1', 'card-top-2', 'card-top-3', 'swiped-left', 'swiped-right');
+            });
+        }
+    }
+
+    // Call initially and on resize
+    renderGalleryLayout();
+    window.addEventListener('resize', renderGalleryLayout);
+
+    function handleDragStart(e) {
+        if (window.innerWidth > 768) return;
+        
+        activeCard = galleryGrid.querySelector('.gallery-item.card-top-1');
+        if (!activeCard) return;
+
+        const touch = e.touches ? e.touches[0] : e;
+        dragStartX = touch.clientX;
+        dragStartY = touch.clientY;
+        dragCurrentX = dragStartX;
+        dragCurrentY = dragStartY;
+        dragDistanceX = 0;
+        dragDistanceY = 0;
+        isDragging = true;
+        dragStartTime = Date.now();
+
+        activeCard.classList.add('dragging');
+    }
+
+    function handleDragMove(e) {
+        if (!isDragging || !activeCard || window.innerWidth > 768) return;
+
+        const touch = e.touches ? e.touches[0] : e;
+        dragCurrentX = touch.clientX;
+        dragCurrentY = touch.clientY;
+        dragDistanceX = dragCurrentX - dragStartX;
+        dragDistanceY = dragCurrentY - dragStartY;
+
+        // Apply physical transform to active dragging card
+        let rotation = dragDistanceX * 0.08; 
+        activeCard.style.transform = `translate3d(${dragDistanceX}px, ${dragDistanceY}px, 0) rotate(${rotation}deg) scale(1.02)`;
+
+        // Depth morph animation for card-top-2 and card-top-3
+        let dragProgress = Math.min(Math.abs(dragDistanceX) / 120, 1);
+        let card2 = galleryGrid.querySelector('.gallery-item.card-top-2');
+        let card3 = galleryGrid.querySelector('.gallery-item.card-top-3');
+
+        if (card2) {
+            let scale = 0.94 + (0.06 * dragProgress);
+            let translateY = 12 - (12 * dragProgress);
+            let opacity = 0.85 + (0.15 * dragProgress);
+            card2.style.transform = `translate3d(0, ${translateY}px, -20px) scale(${scale})`;
+            card2.style.opacity = opacity;
+        }
+        if (card3) {
+            let scale = 0.88 + (0.06 * dragProgress);
+            let translateY = 24 - (12 * dragProgress);
+            let opacity = 0.7 + (0.15 * dragProgress);
+            card3.style.transform = `translate3d(0, ${translateY}px, -40px) scale(${scale})`;
+            card3.style.opacity = opacity;
+        }
+
+        if (e.cancelable) {
+            e.preventDefault();
+        }
+    }
+
+    function handleDragEnd(e) {
+        if (!isDragging || !activeCard || window.innerWidth > 768) return;
+        isDragging = false;
+        activeCard.classList.remove('dragging');
+
+        // Reset temporary inline styles of the background cards
+        let card2 = galleryGrid.querySelector('.gallery-item.card-top-2');
+        let card3 = galleryGrid.querySelector('.gallery-item.card-top-3');
+        if (card2) { card2.style.transform = ''; card2.style.opacity = ''; }
+        if (card3) { card3.style.transform = ''; card3.style.opacity = ''; }
+
+        let dragDuration = Date.now() - dragStartTime;
+        
+        // Tap detector (tap to open Lightbox)
+        if (Math.abs(dragDistanceX) < 10 && Math.abs(dragDistanceY) < 10 && dragDuration < 250) {
+            activeCard.style.transform = '';
+            openLightbox(galleryItems.indexOf(activeCard));
+            return;
+        }
+
+        let swipeThreshold = 100;
+        if (dragDistanceX > swipeThreshold) {
+            // Swipe right
+            activeCard.classList.add('swiped-right');
+            setTimeout(() => {
+                currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
+                renderGalleryLayout();
+            }, 300);
+        } else if (dragDistanceX < -swipeThreshold) {
+            // Swipe left
+            activeCard.classList.add('swiped-left');
+            setTimeout(() => {
+                currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
+                renderGalleryLayout();
+            }, 300);
+        } else {
+            // Snap back to origin
+            activeCard.style.transform = '';
+        }
+    }
+
+    // Bind touch events on gallery grid
+    if (galleryGrid) {
+        galleryGrid.addEventListener('touchstart', handleDragStart, { passive: true });
+        window.addEventListener('touchmove', handleDragMove, { passive: false });
+        window.addEventListener('touchend', handleDragEnd, { passive: true });
+
+        // Bind mouse events for inspection & desktop mobile simulation
+        galleryGrid.addEventListener('mousedown', handleDragStart);
+        window.addEventListener('mousemove', handleDragMove);
+        window.addEventListener('mouseup', handleDragEnd);
+    }
+
+    // Attach click listeners to gallery items with mobile safety check
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            // On mobile, only allow opening if it's the active top card and was not swiped
+            if (window.innerWidth <= 768) {
+                if (item.classList.contains('card-top-1') && Math.abs(dragDistanceX) < 10 && Math.abs(dragDistanceY) < 10) {
+                    openLightbox(index);
+                }
+            } else {
+                openLightbox(index);
+            }
+        });
+    });
+
+    // Mobile Gallery Stack navigation button click handlers
+    const gsPrev = document.getElementById('gs-prev');
+    const gsNext = document.getElementById('gs-next');
+
+    if (gsPrev && gsNext) {
+        gsNext.addEventListener('click', () => {
+            if (window.innerWidth > 768) return;
+            let activeCard = galleryGrid.querySelector('.gallery-item.card-top-1');
+            if (activeCard) {
+                // Swipe right animation
+                activeCard.classList.add('swiped-right');
+                setTimeout(() => {
+                    currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
+                    renderGalleryLayout();
+                }, 300);
+            }
+        });
+
+        gsPrev.addEventListener('click', () => {
+            if (window.innerWidth > 768) return;
+            // Tinder Rewind style: go back and animate flying in from the left!
+            currentGalleryIndex = (currentGalleryIndex - 1 + galleryItems.length) % galleryItems.length;
+            renderGalleryLayout();
+            
+            let newActiveCard = galleryGrid.querySelector('.gallery-item.card-top-1');
+            if (newActiveCard) {
+                newActiveCard.style.transition = 'none';
+                newActiveCard.classList.add('swiped-left');
+                newActiveCard.offsetHeight; // Force reflow
+                newActiveCard.style.transition = '';
+                newActiveCard.classList.remove('swiped-left');
+            }
+        });
+    }
+
+    // Close Lightbox clicks
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxModal.addEventListener('click', (e) => {
+        // Close if click is outside content
+        if (e.target === lightboxModal || e.target.classList.contains('lightbox-content')) {
+            closeLightbox();
+        }
+    });
+
+    // Navigation buttons
+    lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateLightbox(-1);
+    });
+    lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateLightbox(1);
+    });
+
+    // Keyboard Navigation controls
+    document.addEventListener('keydown', (e) => {
+        if (!lightboxModal.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            navigateLightbox(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateLightbox(1);
+        }
+    });
+
+
+    /* ==========================================================================
+       5. VIDEO MODAL PLAYER & DYNAMIC THUMBNAILS
+       ========================================================================== */
+    const videoModal = document.getElementById('videoModal');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const videoModalClose = document.getElementById('videoModalClose');
+    const videoModalOverlay = document.querySelector('.video-modal-overlay');
+    
+    // Helper to extract YouTube Video ID cleanly and robustly
+    const getYouTubeId = (url) => {
+        if (!url) return '';
+        // 1. Handle youtu.be/ID
+        if (url.includes('youtu.be/')) {
+            return url.split('youtu.be/')[1].split(/[?#]/)[0];
+        }
+        // 2. Handle youtube.com/watch?v=ID
+        if (url.includes('v=')) {
+            return url.split('v=')[1].split('&')[0].split(/[?#]/)[0];
+        }
+        // 3. Handle youtube.com/embed/ID
+        if (url.includes('embed/')) {
+            return url.split('embed/')[1].split(/[?#]/)[0];
+        }
+        // If it's already an 11-char ID
+        if (url.length === 11) {
+            return url;
+        }
+        return '';
+    };
+
+    // Helper to extract Google Drive file ID
+    const getDriveFileId = (url) => {
+        if (!url) return null;
+        const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+        if (match) return match[1];
+        const matchId = url.match(/id=([a-zA-Z0-9_-]+)/);
+        if (matchId) return matchId[1];
+        return null;
+    };
+
+    // Automatically generate and set video thumbnails from data-video / data-video-url
+    document.querySelectorAll('.mv-card').forEach(card => {
+        const videoUrl = card.getAttribute('data-video') || card.getAttribute('data-video-url');
+        if (!videoUrl) return;
+
+        const mediaDiv = card.querySelector('.mv-media');
+        if (!mediaDiv) return;
+
+        let thumbnailUrl = '';
+
+        if (videoUrl.includes('drive.google.com')) {
+            const driveId = getDriveFileId(videoUrl);
+            if (driveId) {
+                thumbnailUrl = `https://drive.google.com/thumbnail?id=${driveId}&sz=w1000`;
+            }
+        } else if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+            const ytId = getYouTubeId(videoUrl);
+            if (ytId) {
+                thumbnailUrl = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+            }
+        }
+
+        if (thumbnailUrl) {
+            mediaDiv.style.backgroundImage = `url('${thumbnailUrl}')`;
+            mediaDiv.style.backgroundSize = 'cover';
+            mediaDiv.style.backgroundPosition = 'center';
+        }
+    });
+
+    const openVideoModal = (videoUrl) => {
+        let embedUrl = videoUrl;
+        
+        // Dapatkan ID video YouTube secara andal
+        const youtubeId = getYouTubeId(videoUrl);
+        if (youtubeId) {
+            // Ubah menjadi link embed dengan autoplay aktif (?autoplay=1)
+            embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+        }
+
+        if (videoPlayer) {
+            videoPlayer.src = embedUrl;
+            
+            // Deteksi perangkat seluler (Mobile/Tablet)
+            const isMobile = window.innerWidth <= 768;
+            
+            // Pemicu mode layar penuh (Full Screen) otomatis pada HP/Tablet saja secara aman
+            if (isMobile) {
+                setTimeout(() => {
+                    try {
+                        if (videoPlayer.requestFullscreen) {
+                            videoPlayer.requestFullscreen();
+                        } else if (videoPlayer.webkitRequestFullscreen) {
+                            videoPlayer.webkitRequestFullscreen();
+                        } else if (videoPlayer.mozRequestFullScreen) {
+                            videoPlayer.mozRequestFullScreen();
+                        } else if (videoPlayer.msRequestFullscreen) {
+                            videoPlayer.msRequestFullscreen();
+                        }
+                    } catch (err) {
+                        console.warn("Fullscreen tidak didukung atau diblokir oleh sistem:", err);
+                    }
+                }, 150); // Jeda kecil untuk kestabilan sinkronisasi rendering DOM
+            }
+        }
+        
+        // Tampilkan modal dengan mengubah style display menjadi 'flex' dan menambahkan class 'active'
+        if (videoModal) {
+            videoModal.style.display = 'flex';
+            videoModal.offsetHeight; // Force reflow to trigger CSS transitions
+            videoModal.classList.add('active');
+        }
+        
+        // Kunci scroll body
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeVideoModal = () => {
+        // Sembunyikan modal kembali dengan transisi active
+        if (videoModal) {
+            videoModal.classList.remove('active');
+            setTimeout(() => {
+                if (!videoModal.classList.contains('active')) {
+                    videoModal.style.display = 'none';
+                }
+            }, 500); // sesuai durasi transisi CSS
+        }
+        document.body.style.overflow = '';
+        
+        // Keluar dari mode layar penuh secara aman jika aktif
+        try {
+            const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+            if (isFullscreen) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        } catch (err) {
+            console.warn("Gagal menutup mode Fullscreen:", err);
+        }
+
+        // Kosongkan src agar video berhenti berputar dan suaranya langsung mati
+        if (videoPlayer) {
+            videoPlayer.src = '';
+        }
+    };
+
+    // Deteksi tombol 'Kembali' bawaan HP atau 'Esc' laptop via event listener fullscreenchange
+    const handleFullscreenChange = () => {
+        const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+        // Jika pengguna keluar dari layar penuh dan modal video masih aktif, otomatis tutup modalnya
+        if (!isFullscreen && videoModal && videoModal.classList.contains('active')) {
+            closeVideoModal();
+        }
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+
+    // Global Click Router to handle Google Drive vs. WeTV vs. YouTube Modal
+    const handleVideoClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // Mencegah event bubbling ganda yang memicu freeze / reload iframe
+        
+        // Ambil elemen yang mengikat event listener ini
+        const target = e.currentTarget;
+        if (!target) return;
+
+        // Ambil data dari atribut 'data-video' atau 'data-video-url'
+        let videoUrl = target.getAttribute('data-video') || target.getAttribute('data-video-url') || target.getAttribute('data-video-id');
+        if (!videoUrl) return;
+
+        // 1. Google Drive Link Handling
+        if (videoUrl.includes('drive.google.com')) {
+            // Google Drive: ubah kata '/preview' atau '/edit' secara otomatis menjadi '/view' lalu jalankan window.open(url, '_blank') di tab baru.
+            const cleanedUrl = videoUrl.replace('/preview', '/view').replace('/edit', '/view');
+            window.open(cleanedUrl, '_blank');
+        } 
+        // 2. WeTV Link Handling
+        else if (videoUrl.includes('wetv.vip') || videoUrl.includes('wetv.com') || videoUrl.includes('wetv.co')) {
+            // WeTV: langsung buka di tab baru lewat window.open(url, '_blank').
+            window.open(videoUrl, '_blank');
+        } 
+        // 3. YouTube & General Video Popup Playback
+        else {
+            const youtubeId = getYouTubeId(videoUrl);
+            if (youtubeId) {
+                const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+                openVideoModal(embedUrl);
+            } else {
+                openVideoModal(videoUrl);
+            }
+        }
+    };
+
+    // Attach handler secara presisi ke elemen mv-card / mv-play-btn / watch-film-btn
+    document.querySelectorAll('.mv-card, .mv-play-btn, .watch-film-btn').forEach(elem => {
+        elem.addEventListener('click', handleVideoClick);
+    });
+
+    // Event close untuk tombol tutup & overlay modal
+    if (videoModalClose) {
+        videoModalClose.addEventListener('click', closeVideoModal);
+    }
+    if (videoModalOverlay) {
+        videoModalOverlay.addEventListener('click', closeVideoModal);
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (videoModal && videoModal.classList.contains('active') && e.key === 'Escape') {
+            closeVideoModal();
+        }
+    });
+
+
+    /* ==========================================================================
+       5b. HORIZONTAL SLIDER CONTROLS
+       ========================================================================== */
+    const mvGrid = document.querySelector('.mv-grid');
+    const mvPrev = document.getElementById('mv-prev');
+    const mvNext = document.getElementById('mv-next');
+
+    if (mvGrid && mvPrev && mvNext) {
+        mvNext.addEventListener('click', () => {
+            const firstCard = mvGrid.querySelector('.mv-card');
+            if (firstCard) {
+                const cardWidth = firstCard.getBoundingClientRect().width + 30; // card width + gap
+                mvGrid.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
+        });
+
+        mvPrev.addEventListener('click', () => {
+            const firstCard = mvGrid.querySelector('.mv-card');
+            if (firstCard) {
+                const cardWidth = firstCard.getBoundingClientRect().width + 30; // card width + gap
+                mvGrid.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            }
+        });
+        
+        // Show/hide arrows based on scroll position & dynamic content
+        const toggleArrows = () => {
+            const isScrollable = mvGrid.scrollWidth > mvGrid.clientWidth;
+            if (!isScrollable) {
+                mvPrev.style.display = 'none';
+                mvNext.style.display = 'none';
+            } else {
+                mvPrev.style.display = 'flex';
+                mvNext.style.display = 'flex';
+                
+                // Show opacity feedback based on slider boundaries
+                if (mvGrid.scrollLeft <= 10) {
+                    mvPrev.style.opacity = '0.3';
+                    mvPrev.style.pointerEvents = 'none';
+                } else {
+                    mvPrev.style.opacity = '1';
+                    mvPrev.style.pointerEvents = 'all';
+                }
+                
+                if (mvGrid.scrollLeft + mvGrid.clientWidth >= mvGrid.scrollWidth - 10) {
+                    mvNext.style.opacity = '0.3';
+                    mvNext.style.pointerEvents = 'none';
+                } else {
+                    mvNext.style.opacity = '1';
+                    mvNext.style.pointerEvents = 'all';
+                }
+            }
+        };
+
+        // Listen for scroll & resizing
+        mvGrid.addEventListener('scroll', toggleArrows);
+        window.addEventListener('resize', toggleArrows);
+        
+        // Trigger check on load
+        setTimeout(toggleArrows, 500);
+
+        // Reset scroll position and recheck slider boundaries on filter button clicks
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                mvGrid.scrollTo({ left: 0, behavior: 'auto' });
+                setTimeout(toggleArrows, 500);
+            });
+        });
+    }
+
+    /* ==========================================================================
+       6. VIDEO CATEGORY FILTER
+       ========================================================================== */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const mvCards = document.querySelectorAll('.mv-card');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.getAttribute('data-category');
+            const isActive = btn.classList.contains('active');
+
+            // Target kategori yang akan dituju
+            let targetCategory = category;
+            
+            // Jika mengklik kategori yang sudah aktif (selain 'all'), kembalikan ke 'all'
+            if (isActive && category !== 'all') {
+                targetCategory = 'all';
+            }
+
+            // Update status active pada tombol
+            filterButtons.forEach(b => {
+                if (b.getAttribute('data-category') === targetCategory) {
+                    b.classList.add('active');
+                } else {
+                    b.classList.remove('active');
+                }
+            });
+
+            // Filter card dengan animasi smooth
+            mvCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (targetCategory === 'all' || cardCategory === targetCategory) {
+                    card.style.display = 'block';
+                    // Force reflow untuk memicu animasi CSS
+                    card.offsetHeight;
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) scale(1)';
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(15px) scale(0.95)';
+                    setTimeout(() => {
+                        if (card.style.opacity === '0') {
+                            card.style.display = 'none';
+                        }
+                    }, 400); // Durasi transisi
+                }
+            });
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
