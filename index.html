@@ -1163,20 +1163,34 @@ a.info-value:hover {
    ========================================================================== */
 /* --- Tambahan untuk menyempurnakan .footer-bottom yang sudah ada --- */
 
+.footer-bottom {
+    /* Ini perintah untuk membuat garis putih tebal di atas */
+    border-top: 2px solid #ffffff; 
+    
+    padding: 30px 0;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+    margin-top: 60px; /* Memberi jarak aman dari kartu kontak di atasnya */
+    width: 100%;
+}
+
+/* Mengatur posisi konten di dalam garis agar sejajar kiri-kanan */
 .footer-container {
     display: flex;
-    justify-content: space-between; /* Membuat nama di kiri, link sosmed di kanan */
+    justify-content: space-between; 
     align-items: center;
-    max-width: 1200px; /* Sesuaikan dengan max-width websitemu */
+    max-width: 1200px; /* Menyesuaikan lebar konten atas agar sejajar lurus */
     margin: 0 auto;
     padding: 0 20px;
-    flex-wrap: wrap; /* Agar responsif saat dibuka di HP */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
 .footer-bottom strong {
-    color: var(--color-text-primary); /* Mengikuti warna teks utama websitemu */
+    color: #ffffff;
     font-weight: 600;
+    margin-left: 4px;
 }
 
 .footer-links {
@@ -1188,30 +1202,28 @@ a.info-value:hover {
 .footer-links a {
     color: var(--color-text-muted);
     text-decoration: none;
-    transition: var(--transition-smooth); /* Menggunakan variabel transisi bawaanmu */
+    transition: all 0.3s ease;
 }
 
 .footer-links .separator {
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.2);
 }
 
-/* Efek Hover Instagram (Gradasi Halus) */
+/* Efek Hover saat link disentuh kursor */
 .footer-links .link-ig:hover {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    opacity: 0.9;
 }
 
-/* Efek Hover WhatsApp (Warna Hijau WA) */
 .footer-links .link-wa:hover {
     color: #25D366;
 }
 
-/* Responsif untuk layar HP */
+/* Biar rapi kalau dibuka lewat HP */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column; /* Berubah jadi tumpuk atas-bawah kalau di HP */
+        flex-direction: column;
         text-align: center;
     }
 }
@@ -2487,19 +2499,20 @@ Accustomed to using industrial camera equipment and standard post-production sof
                 </a>
             </div>
 
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-           <div class="footer-bottom">
-    <div class="footer-container">
-        <p>Created by<strong>Faiq</strong></p>
-        
-        <div class="footer-links">
-            <a href="https://instagram.com/fzqlh_" target="_blank" rel="noopener noreferrer" class="link-ig">@fzqlh_</a>
-            <span class="separator">/</span>
-            <a href="https://wa.me/081398842838?text=Halo%20Faiq" target="_blank" rel="noopener noreferrer" class="link-wa">WhatsApp</a>
+        </div> 
+
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p>Handcrafted by <strong>Faiq</strong></p>
+                
+                <div class="footer-links">
+                    <a href="https://instagram.com/fzqlh_" target="_blank" rel="noopener noreferrer" class="link-ig">@fzqlh_</a>
+                    <span class="separator">/</span>
+                    <a href="https://wa.me/081398842838?text=Halo%20Faiq" target="_blank" rel="noopener noreferrer" class="link-wa">WhatsApp</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-        </div>
+
     </footer>
 
     <!-- Fullscreen Immersive Photo Lightbox Modal -->
