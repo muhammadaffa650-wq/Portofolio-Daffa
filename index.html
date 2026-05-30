@@ -1161,9 +1161,59 @@ a.info-value:hover {
 /* ==========================================================================
    CONTACT & FOOTER SECTION
    ========================================================================== */
-.footer-section {
-    padding-top: 100px;
-    background-color: #050505;
+/* --- Tambahan untuk menyempurnakan .footer-bottom yang sudah ada --- */
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Membuat nama di kiri, link sosmed di kanan */
+    align-items: center;
+    max-width: 1200px; /* Sesuaikan dengan max-width websitemu */
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Agar responsif saat dibuka di HP */
+    gap: 15px;
+}
+
+.footer-bottom strong {
+    color: var(--color-text-primary); /* Mengikuti warna teks utama websitemu */
+    font-weight: 600;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: var(--transition-smooth); /* Menggunakan variabel transisi bawaanmu */
+}
+
+.footer-links .separator {
+    color: rgba(255, 255, 255, 0.1);
+}
+
+/* Efek Hover Instagram (Gradasi Halus) */
+.footer-links .link-ig:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.9;
+}
+
+/* Efek Hover WhatsApp (Warna Hijau WA) */
+.footer-links .link-wa:hover {
+    color: #25D366;
+}
+
+/* Responsif untuk layar HP */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Berubah jadi tumpuk atas-bawah kalau di HP */
+        text-align: center;
+    }
 }
 
 .contact-title {
@@ -1235,14 +1285,6 @@ a.info-value:hover {
 .contact-card:hover .contact-card-icon {
     color: var(--color-text-primary);
     transform: scale(1.1);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.03);
-    padding: 35px 0;
-    font-size: 13px;
-    color: var(--color-text-muted);
-    letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
@@ -2445,7 +2487,17 @@ Accustomed to using industrial camera equipment and standard post-production sof
                 </a>
             </div>
 
-            <p>&copy; 2026 Built by <a href="https://instagram.com/@fzqlh_" target="_blank" rel="noopener noreferrer">Faiq</a>. All rights reserved.</p>
+           <div class="footer-bottom">
+    <div class="footer-container">
+        <p>Created by<strong>Faiq</strong></p>
+        
+        <div class="footer-links">
+            <a href="https://instagram.com/fzqlh_" target="_blank" rel="noopener noreferrer" class="link-ig">@fzqlh_</a>
+            <span class="separator">/</span>
+            <a href="https://wa.me/081398842838?text=Halo%20Faiq" target="_blank" rel="noopener noreferrer" class="link-wa">+62 813 9884 2838</a>
+        </div>
+    </div>
+</div>
         </div>
     </footer>
 
